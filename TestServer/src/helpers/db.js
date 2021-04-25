@@ -80,7 +80,7 @@ const findClinic = async function (email) {
       .select("email", "clinicName", "password", "phone", "address")
       .where("email", email).then();
 
-    console.log("Foung clinic in database: ", clinic); 
+    console.log("Found clinic in database: ", clinic); 
     if (!clinic || clinic.length==0 ) {
       throw new Error(" A clinic with this email doesn't exist");
     }

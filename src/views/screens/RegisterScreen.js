@@ -2,25 +2,18 @@ import React from 'react';
 import { useState, useContext } from 'react';
 import {
   Dimensions,
-  Image,
   SafeAreaView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 import {
-  FlatList,
-  ScrollView,
   TextInput,
   TouchableHighlight,
-  TouchableOpacity,
 } from 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import COLORS from '../../consts/colors';
-const {width} = Dimensions.get('screen');
-const cardWidth = width / 2 - 20;
+
 import {AuthContext} from '../navigation/MainStackNavigator';
-import moment from 'moment';
+
 import {signup} from '../../helpers/api';
 
 const RegisterScreen = ({navigation}) => {
@@ -32,23 +25,8 @@ const RegisterScreen = ({navigation}) => {
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
     
-    //how to get 
-//    const { setToken} =
      const {setToken} = useContext(AuthContext);
-     //console.log('from use authcontext: ', temp);
-
-/*
-    navigation.navigate('Root', {
-      screen: 'Settings',
-      params: {
-        screen: 'Sound',
-        params: {
-          screen: 'Media',
-        },
-      },
-    });
-*/
-
+    
     const onPress=function(){
 
       
@@ -75,7 +53,6 @@ const RegisterScreen = ({navigation}) => {
 
 
     return (
-      /* <Image /> company icon*/
         <SafeAreaView >
         <View >
           <View style={{paddingTop:20, paddingHorizontal:13, flexDirection:'row', justifyContent:'space-between'}}>

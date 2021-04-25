@@ -1,59 +1,44 @@
 
-import { parseTwoDigitYear } from 'moment';
 import React from 'react';
 import {useState, useContext, useEffect } from 'react';
 import {
   Dimensions,
-  Image,
-  SafeAreaView,
   StyleSheet,
   Text,
   View,
   Button
 } from 'react-native';
 import {
-  FlatList,
-  ScrollView,
-  TextInput,
-  TouchableHighlight,
-  TouchableOpacity,
+  ScrollView,  
 } from 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import ConsultList from '../components/ConsultList';
 import {AuthContext} from '../navigation/MainStackNavigator';
 import {getSummaries} from '../../helpers/api';
-//import COLORS from '../../consts/colors';
-const {width} = Dimensions.get('screen');
-const cardWidth = width / 2 - 20;
 import MonthlyChart from "../components/MonthlyChart";
 import moment from "moment";
 
 
 const WeeklyRecordScreen = ({ route, navigation }) => {
 
-    //year, month, day //initialize to param if exist, otherwise .now()
+    //TODO: dont hardcode starting date
     const [year, setYear] = useState('2021');
     const [month, setMonth] = useState('04');
     const [day, setDay] = useState('22');
-    //[] = useState(); //need to get summary of current day
+    
     const [listData, setListData] = useState([]);
 
     const { token } = useContext(AuthContext);
 
-    const [date, setDate]= useState(moment(`${year}-${month}-${day}`));
-
-    //let user choose date
-    //show clickable list for that day
+    
     useEffect(function(){
                   
       getSummaries(token, year, month, day, 1)
       .then(result=>{
-        //console.log('result from getSummaries: ', result);
-        //console.log('result.data: ', result.data);
+    
         setListData(result.data);       
 
       }).catch(err=>{
-                      console.log("Failed to get summaries, ", "xxx"+err.message+"xxx");
+                      console.log("Failed to get weekly summaries, ", err.message);
                       if (err.message==="Request failed with status code 404")
                         setListData([]);
                     });               
@@ -71,11 +56,9 @@ const WeeklyRecordScreen = ({ route, navigation }) => {
       getSummaries(token, selectedDate.format("YYYY"), selectedDate.format("MM"), "01", selectedDate.daysInMonth())
       .then(result=>{
 
-        //console.log('result from getSummaries: ', result);
-        //console.log('result.data: ', result.data);
         
         let tempDailyCounts =  new Array(selectedDate.daysInMonth());
-        //[ { date: "2017-01-02", count: 1 }, ];
+        //format required: [ { date: "2017-01-02", count: 1 }, ];
         for (let i=0;i<selectedDate.daysInMonth();i++)
           tempDailyCounts[i]={date: selectedDate.format("YYYY-MM-"+(i+1)), count:0};
         console.log("test", tempDailyCounts);
@@ -89,21 +72,7 @@ const WeeklyRecordScreen = ({ route, navigation }) => {
           }
         );
 
-/*
-        let length = 0;
-        result.data.forEach(
-                              item=>{ 
-                                if( length==0 || moment(item.datetime).format("YYYY-MM-DD")!=tempDailyCounts[length-1].date ) {
-                                  tempDailyCounts.push({ date: moment(item.datetime).format("YYYY-MM-DD"), count:1 });
-                                  length++;
-                                }else{
-                                  tempDailyCounts[length-1].count=tempDailyCounts[length-1].count+1;
-                                }
-                              }
-                              
-                            );
-  */      
-        //console.log(tempDailyCounts);
+
         setDailyCounts(tempDailyCounts);
 
       }).catch(err=>{
@@ -115,11 +84,9 @@ const WeeklyRecordScreen = ({ route, navigation }) => {
     }, [selectedYear, selectedMonth]);
 
     
-    //if (!listData || listData.length==0)
-    //return <Text>Loading data</Text>;
 
     return (
-        //<SafeAreaView>
+
         
         <>
         <View style={{flexDirection:'row', alignItems:'center'}}>
@@ -149,13 +116,9 @@ const WeeklyRecordScreen = ({ route, navigation }) => {
         <ScrollView>
           <ConsultList data={listData} onpress={(consultID)=>navigation.navigate('Detail', {consultID: consultID})} />              
         </ScrollView>
-{/*
-            <ScrollView>
-            <ConsultList data={listData} onpress={(consultID)=>navigation.navigate('Detail', {consultID: consultID})} />              
-            </ScrollView>
-*/}            
+
           </>
-        //</SafeAreaView>
+
     );
 
 };
