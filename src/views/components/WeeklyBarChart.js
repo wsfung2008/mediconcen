@@ -4,22 +4,8 @@ import {
 
 import React from 'react';
 import {
-  Dimensions,
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
+  Dimensions
 } from 'react-native';
-import {
-  FlatList,
-  ScrollView,
-  TextInput,
-  TouchableHighlight,
-  TouchableOpacity,
-} from 'react-native-gesture-handler';
-
-import moment from 'moment';
 
 
 function WeeklyBarChart({totals}){
@@ -27,7 +13,7 @@ function WeeklyBarChart({totals}){
   if (!totals || totals.length==0)
     return null;
 
-    console.log('totals:', totals);
+  //console.log('totals:', totals);
 
   const data = {
     labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],

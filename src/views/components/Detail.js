@@ -1,19 +1,8 @@
 import React from 'react';
 import {
-  Dimensions,
-  Image,
-  SafeAreaView,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
-import {
-  FlatList,
-  ScrollView,
-  TextInput,
-  TouchableHighlight,
-  TouchableOpacity,
-} from 'react-native-gesture-handler';
 
 import moment from 'moment';
 
@@ -28,21 +17,6 @@ const Detail =({consult})=>{
     return <Text>Loading data</Text>;
 
   const {doctorName, patientName, diagnosis, medication, fee, datetime, followup}=consult;
-  //console.log({doctorName, patientName, diagnosis, medication, fee, datetime, followup});
-  //console.log('doctorname: ', consult.doctorName);
-  
-  /*
-  //get data with consultID here
-   const doctorName= 'Dr X'; 
-   const patientName='Tony'; 
-   const diagnosis='Too late to save';
-   const medication = 'Eat more vegetable';
-   const fee= '10000';
-   const datetime= moment().format('YYYY-MM-DD HH:mm');
-   const followup= true;
-*/
-
-  //console.log({doctor, patient, diag, med, fee, datetime, followup});
 
     const LabeledText =({label, text})=>{
         return(
@@ -63,7 +37,7 @@ const Detail =({consult})=>{
                             height: "80%"
                         }}>
                 
-                
+                <LabeledText label="Doctor: " text={doctorName}/>
                 <LabeledText label="Patient: " text={patientName}/>
                 <LabeledText label="Diagnosis: " text={diagnosis}/>
                 <LabeledText label="Medication: " text={medication}/>

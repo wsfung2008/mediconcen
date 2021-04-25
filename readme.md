@@ -35,7 +35,7 @@ Authentication required.
 
 # Demo videos
 1.  [Demo of clinic app](https://www.youtube.com/watch?v=FsQ1nt9AlDU)  
-    The part where the UI is not responding is due to the fact that ngrok(free plan) has a per minute connection limitation(40 max). This won't happen in production.
+    The part where the UI is not responding is due to the fact that ngrok(free plan) has a per minute connection limitation(40 max). This won't happen in production. On th detail page, doctor name is missing, the bug was already fixed after recording of the video.
 2.  [Demo of login/register form validation](https://www.youtube.com/watch?v=jicISeSxmEk)
 
 # Further improvements

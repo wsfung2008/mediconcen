@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-//import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 

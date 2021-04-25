@@ -19,7 +19,7 @@ import {signin} from '../../helpers/api';
 
 const LoginScreen = ({navigation}) => {
 
-    const [email, setEmail] = useState('lol@whatever.com');
+    const [email, setEmail] = useState('lol@whatever.com'); //input data hard coded for ease of testing
     const [password, setPassword] = useState('secure pass');
 
     const {setToken} = useContext(AuthContext);
