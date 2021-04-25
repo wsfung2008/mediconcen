@@ -48,5 +48,5 @@ Some features have been considered but were not implemented due to time restrict
 5. Add a page for adding a new entry of consultation record
 6. Use react hook form for form validation
 
-# Tech stacks
-React native, react-navigation, react-native-chart-kit, react-native-calendar-strip, react-native-datepicker, axios, nodejs, express, knex, bcrypt, jsonwebtoken, moment
+# Tech stack
+React native, react-navigation, react-native-chart-kit, react-native-calendar-strip, react-native-datepicker, axios, node, express, knex, MySQL(hosted on Amazon RDS), bcrypt, jsonwebtoken, moment
