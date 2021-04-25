@@ -20,7 +20,7 @@ The body is a JSON object with the following keys: `email, password`
 2.  **post** `/login`  
 The body is a JSON object with the following keys: `email, password, clinicName, phone, address`
 
-3.  **post** `/consult` (for adding one new consultation record)  
+3.  **post** `/consults` (for adding one new consultation record)  
 Authentication required(the clinic info is extracted from the jwt token).  
 The header has to contain a Authorization key with value of the form `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxvbEB3aGF0ZXZlci5jb20iLCJpYXQiOjE2MTkxNzM5NDh9.MF52yBEfuWu1SsaGXI2ib0q9blsduvRNTyT2yVHa4N8`  
 The body is a JSON object with the following keys: `doctorName, patientName, diagnosis, medication, fee, datetime, followup`
@@ -47,3 +47,6 @@ Some features have been considered but were not implemented due to time restrict
 4. Add a drawer to show the clinic info and a logout button
 5. Add a page for adding a new entry of consultation record
 6. Use react hook form for form validation
+
+# Tech stacks
+React native, react-navigation, react-native-chart-kit, react-native-calendar-strip, react-native-datepicker, axios, nodejs, express, knex, bcrypt, jsonwebtoken, moment
