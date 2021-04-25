@@ -120,10 +120,23 @@ app.get('/consults/:consultID', requireAuth, async function(req, res){
   consultID = req.params.consultID;
 
   getDetailsByID(consultID)
-  .then((consult)=>res.status(200).send(consult)) //TODO: should check if consult belongs to this clinic
-  .catch((err)=>{
+  .then((consult)=>{
+    const email = req.clinic.email; //email extracted from jwt
+    findClinic( email ).then(clinic=>{ 
+      if (!clinic) {
+        return res.status(422).send({ error: 'Invalid token' });
+      }
+      if (consult.clinicEmail!=email){ //if the email associated with the given consultID is not the same as the email from jwt
+        res.status(422).send({ error: 'The requested consultation record doesnt belong to this clinic' });
+        return;
+      }
+      res.status(200).send(consult);
+    });
+    
+  }).catch((err)=>{
     res.status(400).send('Bad request');
   });
+     
 });
 
 
