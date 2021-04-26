@@ -29,8 +29,8 @@ The body is a JSON object with the following keys: `doctorName, patientName, dia
 Authentication required(you can request for only the records belonging to this clinic).
 
 5.  **get** `/consults`  
-e.g. get `/consults?year=21014&month=4&day=22&dayCount=10`  
-It returns a sorted list of records belonging to this clinic that occured within the first 10 days after `2014-4-22`(inclusive)  
+e.g. get `/consults?year=2021&month=4&day=22&dayCount=10`  
+It returns a sorted list of records belonging to this clinic that occured within the first 10 days after `2021-4-22`(inclusive)  
 Authentication required.
 
 # Demo videos
@@ -43,10 +43,11 @@ Some features have been considered but were not implemented due to time restrict
 
 1. Send login/register info over https
 2. Add user input feedback for the monthly view UI
-3. Add input validation for the REST API
-4. Add a drawer to show the clinic info and a logout button
-5. Add a page for adding a new entry of consultation record
-6. Use react hook form for form validation
+3. Cache data locally to reduce latency and save bandwidth
+4. Add input validation for the REST API
+5. Add a drawer to show the clinic info and a logout button
+6. Add a page for adding a new entry of consultation record
+7. Use react hook form for form validation
 
 # Tech stack
 React native, react-navigation, react-native-chart-kit, react-native-calendar-strip, react-native-datepicker, axios, node, express, knex, MySQL(hosted on Amazon RDS), bcrypt, jsonwebtoken, moment
