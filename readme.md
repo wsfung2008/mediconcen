@@ -10,7 +10,7 @@ To use the app,
 4.  open a new terminal, enter `npm run tunnel` (we use ngrok so the react native app in development mode can connect to the local server)
 5.  copy the first 12 letters of the displayed ngrok url (e.g. `cf8edc7c198c` for `http://cf8edc7c198c.ngrok.io`)  
     replace the value of `TUNNEL_ADDRESS` in the `/src/helpers/api.js` file with it
-6.  open a new termial, go to root directory, enter `npm install` and enter `expo start`
+6.  open a new terminal, go to root directory, enter `npm install` and enter `expo start`
 
 The backend REST API supports the following http requests,
 
